@@ -13,7 +13,7 @@ image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) #Converts RGB to HSV
 # image = cv2.imread('testim.png')
 
 # boundaries = [([100, 50, 0], [255, 180, 104])] #RGB Space
-boundaries = [([11, 153, 214], [25, 255, 255])] #HSV Space
+boundaries = [([163, 56, 74], [179, 255, 255])] #HSV Space
 
 
 for(lower, upper) in boundaries:
@@ -22,8 +22,9 @@ for(lower, upper) in boundaries:
     upper = np.array(upper, dtype = "uint8")
 
     #find colors in boundaries and apply mask
-    mask = cv2.inRange(image, lower, upper)
-    output = cv2.bitwise_and(image, image, mask=mask)
+    colormask = cv2.inRange(image, lower, upper)
+
+    output = cv2.bitwise_and(image, image, mask=colormask)
 
     # show the images
     cv2.imwrite("coloredimg.jpg", output)
