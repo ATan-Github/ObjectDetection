@@ -13,7 +13,10 @@ image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) #Converts RGB to HSV
 # image = cv2.imread('testim.png')
 
 # boundaries = [([100, 50, 0], [255, 180, 104])] #RGB Space
-boundaries = [([163, 56, 74], [179, 255, 255])] #HSV Space
+
+# boundaries = [([163, 56, 74], [179, 255, 255])] #HSV Space
+# boundaries = [([11, 153, 172], [24, 255, 255])]
+boundaries = [([25, 91, 234], [31, 255, 255])]
 
 
 for(lower, upper) in boundaries:
