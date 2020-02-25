@@ -33,4 +33,5 @@ for(lower, upper) in boundaries:
     cv2.imwrite("coloredimg.jpg", output)
     cv2.imshow("images", np.hstack([image,output]))
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
