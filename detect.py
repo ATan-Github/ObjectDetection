@@ -1,16 +1,20 @@
 ### This will be the combination of color.py and shape.py ###
+""" Run using 'python3 detect.py --image *name_of_test_img*'"""
 import cv2
 import numpy as np
 import argparse
 from dictionary import colors
 import time
 
+# Read an image through command line
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="Path to image")
 args = vars(ap.parse_args())
 
 image = cv2.imread(args["image"])
 image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+#-----------------------------------------------------------------------#
 
 # print (colors['HSV'])
 for color in colors['HSV']:
@@ -34,8 +38,8 @@ for color in colors['HSV']:
         # cv2.imshow("images", np.hstack([image,output]))
         cv2.waitKey(0)
 
-
+#-----------------------------------------------------------------------#
 # For loop through the colored folder
-# find_shape.py
+# implement find_shape.py here
 # end loop
 cv2.destroyAllWindows()

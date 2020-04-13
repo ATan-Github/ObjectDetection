@@ -1,8 +1,10 @@
 ### All color codes are in hsv format ###
+""" Run using 'python3 findcolor.py --image *name_of_test_img*'"""
 import cv2
 import numpy as np
 import argparse
 
+# Read image through script line
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required=True, help="Path to image")
 args = vars(ap.parse_args())
@@ -10,7 +12,10 @@ args = vars(ap.parse_args())
 image = cv2.imread(args["image"])
 image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) #Converts RGB to HSV
 
+# Manually load in image
 # image = cv2.imread('testim.png')
+
+#------------------------------------------------------------------------#
 
 # boundaries = [([100, 50, 0], [255, 180, 104])] #RGB Space
 
@@ -19,6 +24,7 @@ image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV) #Converts RGB to HSV
 # boundaries = [([11, 153, 172], [24, 255, 255])] #Orange
 boundaries = [([25, 91, 234], [31, 255, 255])] #Yellow
 
+#------------------------------------------------------------------------#
 
 for(lower, upper) in boundaries:
     # create NumPy arrays from the boundaries
